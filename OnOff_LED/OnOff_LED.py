@@ -19,8 +19,8 @@ def destroy():
 
 def main():
     while True:  
-        userInput = input('What? ')
-        #userInput.upper()
+        userInput = raw_input('What? ')
+        userInput.upper()
         if userInput == "ON":
             setLED(1)
         elif userInput == "OFF":
