@@ -18,17 +18,14 @@ def destroy():
     GPIO.cleanup()  # Release resource         
 
 def main():
-    while True:
-        print('\nWhat? ', end='')
-        userInput = input().upper()
-
+    while True:  
+        userInput = input('What? ').upper()
         if userInput == "ON":
             setLED(1)
         elif userInput == "OFF":
             setLED(0)
         else:
             print('WTF!')
-
 
 if __name__ == '__main__':          # todo: is this the entry point to the program? thesis: yes it is 
     init()
