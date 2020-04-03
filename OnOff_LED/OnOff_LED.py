@@ -6,12 +6,12 @@ def init():
     GPIO.setmode(GPIO.BCM)      # Set the GPIO modes to BCM Numbering                            
     setLED(0)
 
-def setLED(x):
+def setLED(x):                  # 1 = on, 0 = off
     LedPin = 27                 # Make sure the LED is on this pin on breadboard 
     if x == 0:
-        GPIO.setup(LedPin, GPIO.OUT, initial=GPIO.LOW)     # Set pin 17 off (no voltage)
+        GPIO.setup(LedPin, GPIO.OUT, initial=GPIO.HIGH) # GPIO.HIGH indicates off (no light)
     else:
-        GPIO.setup(LedPin, GPIO.OUT, initial=GPIO.HIGH)
+        GPIO.setup(LedPin, GPIO.OUT, initial=GPIO.LOW)     
 
 def destroy():    
     setLED(0)  # Turn off LED
