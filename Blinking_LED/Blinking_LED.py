@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import RPi.GPIO as GPIO
 import time
-LedPin = 17
+LedPin = 27
 def setup():
     # Set the GPIO modes to BCM Numbering
     GPIO.setmode(GPIO.BCM)
