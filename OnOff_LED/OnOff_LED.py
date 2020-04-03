@@ -7,7 +7,7 @@ def init():
     setLED(0)
 
 def setLED(x):
-    LedPin = 17                 # Make sure the LED is on this pin on breadboard 
+    LedPin = 27                 # Make sure the LED is on this pin on breadboard 
     if x == 0:
         GPIO.setup(LedPin, GPIO.OUT, initial=GPIO.LOW)     # Set pin 17 off (no voltage)
     else:
