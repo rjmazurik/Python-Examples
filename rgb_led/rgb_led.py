@@ -81,10 +81,10 @@ def destroy():
 def main(): 
     while True:  
         userInput = raw_input('What color? ')
-        #userInput.upper()
-        print(color_dict.values())
-        #hexColor = color_dict.get(userInput)
-        #print("value: " + hexColor)       
+        userInput.upper()
+        #print(color_dict.values())   #debug
+        hexColor = color_dict.get(userInput)
+        print("value: " + hexColor)       
 if __name__ == '__main__':          # todo: is this the entry point to the program? thesis: yes it is 
 	setup()
 	try:
