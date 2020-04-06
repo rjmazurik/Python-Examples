@@ -78,6 +78,7 @@ def destroy():
 	GPIO.cleanup()
 
 def main():
+	setup() 
     while True:  
         userInput = input('What color? ')
         userInput.upper()
