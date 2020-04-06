@@ -77,8 +77,7 @@ def destroy():
 	# Release resource
 	GPIO.cleanup()
 
-def main():
-	setup() 
+def main(): 
     while True:  
         userInput = input('What color? ')
         userInput.upper()
@@ -86,8 +85,9 @@ def main():
         print("value: " + hexColor)
         
 if __name__ == '__main__':          # todo: is this the entry point to the program? thesis: yes it is 
-    try:
-        main()
+	setup()
+	try:
+		main()
     except KeyboardInterrupt:       # When 'Ctrl+C' is pressed, the program destroy() will be  executed.
         destroy()
         print('\nok. bye!\n')
