@@ -38,9 +38,9 @@ def setup():
 		GPIO.setup(pins[i], GPIO.OUT, initial=GPIO.HIGH)
 
 	# Set all led as pwm channel and frequece to 2KHz
-	p_R = GPIO.PWM(pins['Red'], 2000)
-	p_G = GPIO.PWM(pins['Green'], 2000)
-	p_B = GPIO.PWM(pins['Blue'], 2000)
+	p_R = GPIO.PWM(pins['red'], 2000)
+	p_G = GPIO.PWM(pins['green'], 2000)
+	p_B = GPIO.PWM(pins['blue'], 2000)
 
 	# Set all begin with value 0
 	p_R.start(0)
