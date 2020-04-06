@@ -81,7 +81,7 @@ def destroy():
 def main(): 
     while True:  
         userInput = input('What color? ')
-        userInput.upper()
+        #userInput.upper()
         print(color_dict.values())
         #hexColor = color_dict.get(userInput)
         #print("value: " + hexColor)       
