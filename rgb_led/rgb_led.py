@@ -2,9 +2,10 @@
 
 import RPi.GPIO as GPIO
 
-pins = {'red':17, 'green':18, 'blue':27}
+pins = {'red': 17, 'green': 18, 'blue': 27}
 
 color_dict = {}
+
 
 def setColor(colorHex):
  # configures the three LEDs' luminance with the inputted color value . 
@@ -88,7 +89,7 @@ if __name__ == '__main__':          # todo: is this the entry point to the progr
 	setup()
 	try:
 		main()
-    except KeyboardInterrupt:       # When 'Ctrl+C' is pressed, the program destroy() will be  executed.
-        destroy()
-        print('\nok. bye!\n')
-        exit()
+	except KeyboardInterrupt:		# When 'Ctrl+C' is pressed, the program destroy() will be  executed.
+		destroy()
+		print('\nok. bye!\n')
+		exit()
