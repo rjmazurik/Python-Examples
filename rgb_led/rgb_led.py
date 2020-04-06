@@ -45,22 +45,22 @@ def setup():
 	p_G.start(0)
 	p_B.start(0)
 
-	color_dict["BLACK"]="#000000"
-	color_dict["WHITE"]="#FFFFFF"
-	color_dict["RED"]="#FF0000"
-	color_dict["LIME"]="#00FF00"
-	color_dict["BLUE"]="#0000FF"
-	color_dict["YELLOW"]="#FFFF00"
-	color_dict["CYAN"]="#00FFFF"
-	color_dict["MAGENTA"]="#FF00FF"
-	color_dict["SILVER"]="#C0C0C0"
-	color_dict["GRAY"]="#808080"
-	color_dict["MAROON"]="#800000"
-	color_dict["OLIVE"]="#808000"
-	color_dict["GREEN"]="#008000"
-	color_dict["PURPLE"]="#800080"
-	color_dict["TEAL"]="#008080"
-	color_dict["NAVY"]="#000080"
+	color_dict["BLACK"]="0x000000"
+	color_dict["WHITE"]="0xFFFFFF"
+	color_dict["RED"]="0xFF0000"
+	color_dict["LIME"]="0x00FF00"
+	color_dict["BLUE"]="0x0000FF"
+	color_dict["YELLOW"]="0xFFFF00"
+	color_dict["CYAN"]="0x00FFFF"
+	color_dict["MAGENTA"]="0xFF00FF"
+	color_dict["SILVER"]="0xC0C0C0"
+	color_dict["GRAY"]="0x808080"
+	color_dict["MAROON"]="0x800000"
+	color_dict["OLIVE"]="0x808000"
+	color_dict["GREEN"]="0x008000"
+	color_dict["PURPLE"]="0x800080"
+	color_dict["TEAL"]="0x008080"
+	color_dict["NAVY"]="0x000080"
 
 
 # Define a MAP function for mapping values.  Like from 0~255 to 0~100
