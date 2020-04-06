@@ -7,7 +7,8 @@ pins = {'red': 17, 'green': 18, 'blue': 27}
 color_dict = {}
 
 
-def setColor(hexColor):
+def setColor(hexString):
+    hexColor = int(hexString, 16)
  # configures the three LEDs' luminance with the inputted color value . 
 	# Devide colors from 'color' veriable
 	R_val = (hexColor & 0xFF0000) >> 16
