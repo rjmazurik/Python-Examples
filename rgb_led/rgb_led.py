@@ -7,12 +7,12 @@ pins = {'red': 17, 'green': 18, 'blue': 27}
 color_dict = {}
 
 
-def setColor(colorHex):
+def setColor(hexColor):
  # configures the three LEDs' luminance with the inputted color value . 
 	# Devide colors from 'color' veriable
-	R_val = (colorHex & 0xFF0000) >> 16
-	G_val = (colorHex & 0x00FF00) >> 8
-	B_val = (colorHex & 0x0000FF) >> 0
+	R_val = (hexColor & 0xFF0000) >> 16
+	G_val = (hexColor & 0x00FF00) >> 8
+	B_val = (hexColor & 0x0000FF) >> 0
  # these three lines are used for analyzing the col variables 
  # assign the first two values of the hexadecimal to R, the middle two assigned to G
  # assign the last two values to B, please refer to the shift operation of the hexadecimal for details.
@@ -83,8 +83,9 @@ def main():
         userInput = raw_input('What color? ')
         userInput.upper()
         #print(color_dict.values())   #debug
-        hexColor = color_dict.get(userInput)
-        print("value: " + hexColor)       
+        hexValue = color_dict.get(userInput)
+        #print("value: " + hexColor)  #debug
+        setColor(hexValue)     
 if __name__ == '__main__':          # todo: is this the entry point to the program? thesis: yes it is 
 	setup()
 	try:
