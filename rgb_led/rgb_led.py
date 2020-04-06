@@ -82,11 +82,9 @@ def main():
     while True:  
         userInput = input('What color? ')
         userInput.upper()
-		x = color_dict.values()
-		print(x)
+        print(color_dict.values())
         #hexColor = color_dict.get(userInput)
-        #print("value: " + hexColor)
-        
+        #print("value: " + hexColor)       
 if __name__ == '__main__':          # todo: is this the entry point to the program? thesis: yes it is 
 	setup()
 	try:
