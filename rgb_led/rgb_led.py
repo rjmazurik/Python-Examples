@@ -9,26 +9,23 @@ color_dict = {}
 
 def setColor(hexString):
     hexColor = int(hexString, 16)
- # configures the three LEDs' luminance with the inputted color value . 
-	# Devide colors from 'color' veriable
-	R_val = (hexColor & 0xFF0000) >> 16
-	G_val = (hexColor & 0x00FF00) >> 8
-	B_val = (hexColor & 0x0000FF) >> 0
+    R_val = (hexColor & 0xFF0000) >> 16
+    G_val = (hexColor & 0x00FF00) >> 8
+    B_val = (hexColor & 0x0000FF) >> 0
  # these three lines are used for analyzing the col variables 
  # assign the first two values of the hexadecimal to R, the middle two assigned to G
  # assign the last two values to B, please refer to the shift operation of the hexadecimal for details.
 
 	# Map color value from 0~255 to 0~100
-	R_val = MAP(R_val, 0, 255, 0, 100)
-	G_val = MAP(G_val, 0, 255, 0, 100)
-	B_val = MAP(B_val, 0, 255, 0, 100)
+    R_val = MAP(R_val, 0, 255, 0, 100)
+    G_val = MAP(G_val, 0, 255, 0, 100)
+    B_val = MAP(B_val, 0, 255, 0, 100)
 	
 	# Change the colors
-	p_R.ChangeDutyCycle(R_val)
+    p_R.ChangeDutyCycle(R_val)
 	# Assign the mapped duty cycle value to the corresponding PWM channel to change the luminance. 
-	p_G.ChangeDutyCycle(G_val)
-	p_B.ChangeDutyCycle(B_val)
-
+    p_G.ChangeDutyCycle(G_val)
+    p_B.ChangeDutyCycle(B_val)
 	
 def setup():
 	global p_R, p_G, p_B
