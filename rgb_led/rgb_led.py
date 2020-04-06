@@ -82,7 +82,7 @@ def main():
         userInput.upper()
         try:
         	hexValue = color_dict.get(userInput)
-        except:
+        except KeyError:
             print('\nbad color')
         else:
         	setColor(hexValue)     
