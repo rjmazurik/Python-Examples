@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 
 pins = {'red':17, 'green':18, 'blue':27}
 
+color_dict = {}
 
 def setColor(colorHex):
  # configures the three LEDs' luminance with the inputted color value . 
@@ -26,28 +27,9 @@ def setColor(colorHex):
 	p_G.ChangeDutyCycle(G_val)
 	p_B.ChangeDutyCycle(B_val)
 
-color_dict = {
-    "BLACK": "#000000"
-}
+	
 def setup():
-    color_dict["WHITE"]="#FFFFFF"
-    color_dict["RED"]="#FF0000"
-    color_dict["LIME"]="#00FF00"
-    color_dict["BLUE"]="#0000FF"
-    color_dict["YELLOW"]="#FFFF00"
-    color_dict["CYAN"]="#00FFFF"
-    color_dict["MAGENTA"]="#FF00FF"
-    color_dict["SILVER"]="#C0C0C0"
-    color_dict["GRAY"]="#808080"
-    color_dict["MAROON"]="#800000"
-    color_dict["OLIVE"]="#808000"
-    color_dict["GREEN"]="#008000"
-    color_dict["PURPLE"]="#800080"
-    color_dict["TEAL"]="#008080"
-    color_dict["NAVY"]="#000080"
-    
-
-    global p_R, p_G, p_B
+	global p_R, p_G, p_B
 	# Set the GPIO modes to BCM Numbering
 	GPIO.setmode(GPIO.BCM)
 	# Set all LedPin's mode to output and initial level to High(3.3v)
@@ -63,6 +45,24 @@ def setup():
 	p_R.start(0)
 	p_G.start(0)
 	p_B.start(0)
+
+	color_dict["BLACK"]="#000000"
+	color_dict["WHITE"]="#FFFFFF"
+    color_dict["RED"]="#FF0000"
+    color_dict["LIME"]="#00FF00"
+    color_dict["BLUE"]="#0000FF"
+    color_dict["YELLOW"]="#FFFF00"
+    color_dict["CYAN"]="#00FFFF"
+    color_dict["MAGENTA"]="#FF00FF"
+    color_dict["SILVER"]="#C0C0C0"
+    color_dict["GRAY"]="#808080"
+    color_dict["MAROON"]="#800000"
+    color_dict["OLIVE"]="#808000"
+    color_dict["GREEN"]="#008000"
+    color_dict["PURPLE"]="#800080"
+    color_dict["TEAL"]="#008080"
+    color_dict["NAVY"]="#000080"
+
 
 # Define a MAP function for mapping values.  Like from 0~255 to 0~100
 def MAP(x, in_min, in_max, out_min, out_max):
