@@ -81,7 +81,7 @@ def main():
         userInput = raw_input('What color? ')
         hexValueString = color_dict.get(userInput.upper(), "notfound" )
         if hexValueString == "notfound": 
-            print('\nbad color')
+            print('bad color')
         else:
             setColor(hexValueString)
                  
