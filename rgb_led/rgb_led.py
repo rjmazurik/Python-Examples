@@ -80,8 +80,8 @@ def main():
     while True:  
         userInput = raw_input('What color? ')
         userInput.upper()
-        hexValue = color_dict.get(userInput)
-        if hexValue == "None": 
+        hexValue = color_dict.get(userInput, "notfound" )
+        if hexValue == "notfound": 
             print('\nbad color')
         else:
             setColor(hexValue)
