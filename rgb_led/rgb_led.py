@@ -8,7 +8,7 @@ color_dict = {}
 
 
 def setColor(hexString):
-    hexColor = int(hexString, 16)
+    hexColor = int(hexString, 16)           #convert to hex
     R_val = (hexColor & 0xFF0000) >> 16
     G_val = (hexColor & 0x00FF00) >> 8
     B_val = (hexColor & 0x0000FF) >> 0
@@ -45,22 +45,22 @@ def setup():
     p_G.start(0)
     p_B.start(0)
 
-    color_dict["BLACK"]="0x000000"
-    color_dict["WHITE"]="0xFFFFFF"
-    color_dict["RED"]="0xFF0000"
-    color_dict["LIME"]="0x00FF00"
-    color_dict["BLUE"]="0x0000FF"
-    color_dict["YELLOW"]="0xFFFF00"
-    color_dict["CYAN"]="0x00FFFF"
-    color_dict["MAGENTA"]="0xFF00FF"
-    color_dict["SILVER"]="0xC0C0C0"
-    color_dict["GRAY"]="0x808080"
-    color_dict["MAROON"]="0x800000"
-    color_dict["OLIVE"]="0x808000"
-    color_dict["GREEN"]="0x008000"
-    color_dict["PURPLE"]="0x800080"
-    color_dict["TEAL"]="0x008080"
-    color_dict["NAVY"]="0x000080"
+    color_dict["BLACK"] = "0x000000"
+    color_dict["WHITE"] = "0xFFFFFF"
+    color_dict["RED"] = "0xFF0000"
+    color_dict["LIME"] = "0x00FF00"
+    color_dict["BLUE"] = "0x0000FF"
+    color_dict["YELLOW"] = "0xFFFF00"
+    color_dict["CYAN"] = "0x00FFFF"
+    color_dict["MAGENTA"] = "0xFF00FF"
+    color_dict["SILVER"] = "0xC0C0C0"
+    color_dict["GRAY"] = "0x808080"
+    color_dict["MAROON"] = "0x800000"
+    color_dict["OLIVE"] = "0x808000"
+    color_dict["GREEN"] = "0x008000"
+    color_dict["PURPLE"] = "0x800080"
+    color_dict["TEAL"] = "0x008080"
+    color_dict["NAVY"] = "0x000080"
 
 
 # Define a MAP function for mapping values.  Like from 0~255 to 0~100
@@ -79,11 +79,11 @@ def destroy():
 def main(): 
     while True:  
         userInput = raw_input('What color? ')
-        hexValue = color_dict.get(userInput.upper(), "notfound" )
-        if hexValue == "notfound": 
+        hexValueString = color_dict.get(userInput.upper(), "notfound" )
+        if hexValueString == "notfound": 
             print('\nbad color')
         else:
-            setColor(hexValue)
+            setColor(hexValueString)
                  
 if __name__ == '__main__':          # todo: is this the entry point to the program? thesis: yes it is 
     setup()
