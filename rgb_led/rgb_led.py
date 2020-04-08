@@ -78,7 +78,7 @@ def destroy():
 
 def main(): 
     while True:  
-        userInput = raw_input('What color? ')
+        userInput = input('What color? ')
         hexValueString = color_dict.get(userInput.upper(), "notfound" )
         if hexValueString == "notfound": 
             print('bad color')
