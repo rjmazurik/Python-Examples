@@ -32,7 +32,6 @@ def setup():
     contents = file.read()
     global color_dict
     color_dict = ast.literal_eval(contents)
-    print(color_dict)
     
     global p_R, p_G, p_B
     # Set the GPIO modes to BCM Numbering
