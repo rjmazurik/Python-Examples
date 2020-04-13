@@ -1,5 +1,5 @@
 #!rgb_led
-
+import ast
 import RPi.GPIO as GPIO
 
 pins = {'red': 17, 'green': 18, 'blue': 27}
@@ -28,6 +28,12 @@ def setColor(hexString):
     p_B.ChangeDutyCycle(B_val)
     
 def setup():
+    file = open("colors.txt", "r")
+    contents = file.read()
+    global color_dict
+    color_dict = ast.literal_eval(contents)
+    print(color_dict)
+    
     global p_R, p_G, p_B
     # Set the GPIO modes to BCM Numbering
     GPIO.setmode(GPIO.BCM)
@@ -45,30 +51,13 @@ def setup():
     p_G.start(0)
     p_B.start(0)
 
-    color_dict["BLACK"] = "0x000000"
-    color_dict["WHITE"] = "0xFFFFFF"
-    color_dict["RED"] = "0xFF0000"
-    color_dict["LIME"] = "0x00FF00"
-    color_dict["BLUE"] = "0x0000FF"
-    color_dict["YELLOW"] = "0xFFFF00"
-    color_dict["CYAN"] = "0x00FFFF"
-    color_dict["MAGENTA"] = "0xFF00FF"
-    color_dict["SILVER"] = "0xC0C0C0"
-    color_dict["GRAY"] = "0x808080"
-    color_dict["MAROON"] = "0x800000"
-    color_dict["OLIVE"] = "0x808000"
-    color_dict["GREEN"] = "0x008000"
-    color_dict["PURPLE"] = "0x800080"
-    color_dict["TEAL"] = "0x008080"
-    color_dict["NAVY"] = "0x000080"
-
-
 # Define a MAP function for mapping values.  Like from 0~255 to 0~100
 def MAP(x, in_min, in_max, out_min, out_max):
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
 
 def destroy():
+    file.close()
     # Stop all pwm channel
     p_R.stop()
     p_G.stop()
