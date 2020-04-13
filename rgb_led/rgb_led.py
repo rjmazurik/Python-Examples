@@ -57,6 +57,7 @@ def MAP(x, in_min, in_max, out_min, out_max):
 
 
 def destroy():
+    file.close()
     # Stop all pwm channel
     p_R.stop()
     p_G.stop()
