@@ -45,7 +45,7 @@ def main():
 if __name__ == '__main__': 
     try:
         main()
-    except KeyboardInterrupt:
+    except KeyboardInterrupt:		
         print('\nok. bye!\n')
         exit()
 
