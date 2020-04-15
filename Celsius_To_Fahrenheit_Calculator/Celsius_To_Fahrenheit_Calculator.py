@@ -19,26 +19,14 @@ def main():
                 fahrenheitOutput = CtoF(float(celsiusInput))
                 print(str(round(fahrenheitOutput, 1)) + ' F')
             except: 
-                print("Input must be a number (1)")
-                celsiusInput = input('(celsius)value? ')
-                print("Buddy, I said input must be a number (2)")
-                celsiusInput = input('(celsius)value? ')
-                print("Alright funny guy, last chance (3)")
-                celsiusInput = input('(celsius)value? ')
-                print('RETURNING TO START >=(')
+                raise
         elif convertType == ('F'):
             try:
                 fahrenheitInput = input('(fahrenheit)value? ')
                 celsiusOutput = FtoC(float(fahrenheitInput))
                 print(str(round(celsiusOutput, 1)) + ' C')
             except:
-                print("Input must be a number (1)")
-                fahrenheitInput = input('(fahrenheit)value? ')
-                print("Buddy, I said input must be a number (2)")
-                fahrenheitInput = input('(fahrenheit)value? ')
-                print("Alright funny guy, last chance (3)")
-                fahrenheitInput = input('(fahrenheit)value? ')
-                print('RETURNING TO START >=(')
+                raise
         elif convertType != ('C') or ('F'):
             print('Please choose either (C)elsius or (F)ahrenheit')
                           
