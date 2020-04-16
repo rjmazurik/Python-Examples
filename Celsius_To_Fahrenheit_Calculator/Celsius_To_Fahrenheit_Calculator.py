@@ -1,13 +1,7 @@
 #!Celsius_To_Fahrenheit_Calculator 
 
-def FtoC(F : float):
-    celsius = (F - 32.0) * (5.0/9.0)
-    return celsius
+from Temperature import CtoF, FtoC
 
-def CtoF(C : float):
-    fahrenheit = (C * (9.0/5.0)) + 32.0 
-    return fahrenheit
-    
 def main(): 
     while True:  
         userInput = input('Convert (C)elsius or (F)ahrenheit? ')
