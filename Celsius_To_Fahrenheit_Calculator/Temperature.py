@@ -7,3 +7,7 @@ def FtoC(F : float):
 def CtoF(C : float):
     fahrenheit = (C * (9.0/5.0)) + 32.0 
     return fahrenheit
+
+def KtoF(kelvinValue):
+    celsiusValue = kelvinValue - 273.15
+    return CtoF(celsiusValue)
