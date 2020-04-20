@@ -5,14 +5,7 @@ def main():
         userInput = input('rsh> ')
         if userInput == 'exit':
             break
-        try:
-            x = eval(userInput)
-            if x: print(x)
-        except:
-            try:
-                exec(userInput)
-            except Exception as error:
-                print('error:', error)
+        
         
 
         
