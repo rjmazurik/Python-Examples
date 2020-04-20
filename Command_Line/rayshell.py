@@ -5,6 +5,8 @@ def main():
         userInput = input('rsh> ')
         if userInput == 'exit':
             break
+        elif userInput == 'e':
+            break
         
         
 
