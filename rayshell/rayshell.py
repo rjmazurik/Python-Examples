@@ -23,6 +23,7 @@ def main():
         if userInput == '' : continue                    # handle no input  case
         cmd, convType, tempValue = parseInput(userInput) # separate the command line
         if cmd == 'e':
+            print("goodbye!")
             break
         elif cmd == 't': #tempcalc command 
             commandline = f'python ./tempcalc.py {convType} {tempValue}'
@@ -33,7 +34,9 @@ def main():
             output = subprocess.getoutput(commandline) # getoutput() does the shell out
             print(output)
         elif cmd == 'd':
-           print('x')
+           commandline = f'df -h'
+           output = subprocess.getoutput(commandline)
+           print(output)
         elif cmd == 'v':
             commandline = f'lsb_release -a'
             output = subprocess.getoutput(commandline)
