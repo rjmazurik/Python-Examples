@@ -32,7 +32,12 @@ def main():
             commandline = f'ls -al'
             output = subprocess.getoutput(commandline) # getoutput() does the shell out
             print(output)
-            
+        elif cmd == 'd':
+           print('x')
+        elif cmd == 'v':
+            commandline = f'lsb_release -a'
+            output = subprocess.getoutput(commandline)
+            print(output) 
         
 if __name__ == '__main__':
     try:
