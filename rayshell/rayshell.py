@@ -34,9 +34,9 @@ def main():
             output = subprocess.getoutput(commandline) # getoutput() does the shell out
             print(output)
         elif cmd == 'd':
-           commandline = f'df -h'
-           output = subprocess.getoutput(commandline)
-           print(output)
+            commandline = f'df -h'
+            output = subprocess.getoutput(commandline)
+            print(output)
         elif cmd == 'v':
             commandline = f'lsb_release -a'
             output = subprocess.getoutput(commandline)
