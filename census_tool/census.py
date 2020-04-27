@@ -17,7 +17,7 @@ class Census():
         self.yearDict['2018'] = 16
         self.yearDict['2019'] = 17
         
-    def MetroByState(self, state, year) -> dict:
+    def MetroByState(self, year, state=None) -> dict: #state=None specifies default arg
         with open('US-Census-Metro-Data.csv', newline='') as csvfile:
             reader = csv.reader(csvfile, dialect='excel', delimiter=',')
             next(reader, None)                      # skip the header line 
@@ -27,11 +27,13 @@ class Census():
                 splitMetro = metroAreas.split(',')
                 metro = splitMetro[0]
                 stateAbbreviation = splitMetro[1].strip() # remove leading and trailing spaces
+                if state == None:                         # check if arg is None
+                    state = "OR"
                 if state == stateAbbreviation:
                     popIndex = self.yearDict[year]
                     population = (row[popIndex]) 
                     statesPopulationList[metro]=int(population) # add dict item by key (metro)
-                    
+                
             return self.__sortOutput(statesPopulationList) # sort the dict
     
     def ValidateYear(self, year) -> bool: # see if year is in dict 
