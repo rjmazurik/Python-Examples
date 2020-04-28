@@ -32,7 +32,7 @@ class Census():
                     population = (row[popIndex]) 
                     statesPopulationList[metro]=int(population) # add dict item by key (metro)
                 
-            return self.__sortOutput(statesPopulationList) # sort the dict
+            return self._sortOutput(statesPopulationList) # sort the dict
     
     def ValidateYear(self, year="2019") -> bool: # see if year is in dict 
         if year in self.yearDict.keys():
@@ -40,6 +40,6 @@ class Census():
         else:
             return False 
         
-    def __sortOutput(self, popList) -> dict: # internal sort dict 
+    def _sortOutput(self, popList) -> dict: # internal sort dict 
         sortedList = sorted(dict(popList).items(), key=lambda x: x[1], reverse=True)
         return sortedList
