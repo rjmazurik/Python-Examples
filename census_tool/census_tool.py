@@ -5,17 +5,17 @@ from census import Census
 def main():
     census = Census() # instantiate object 
     while True:
-        stateAcronym = input('State(default: OR) ? ').upper()
-        if stateAcronym == "":
-            stateAcronym = None
-        while True:
-            year = input('Year (2010-2019) ? ')
-            if not census.ValidateYear(year):
-                print("Invalid year")
-                continue 
-            else:
-                break
-        theSortedList = census.MetroByState( year, stateAcronym )
+        stateInput = input('State(default: OR) ? ').upper()
+        yearInput = input('Year (default: 2019) ? ')
+        if stateInput == '' and yearInput == '':
+            theSortedList = census.MetroByState()
+        elif stateInput == '' and yearInput != '':
+            theSortedList = census.MetroByState(year=yearInput) # named parameter passing 
+        elif stateInput != '' and yearInput == "":
+                theSortedList = census.MetroByState(state=stateInput)     
+        else: # both state and year were entered 
+            theSortedList = census.MetroByState(stateInput, yearInput) # positional passing
+                   
         i = 0
         for metro, pop in dict(theSortedList).items(): # output the dict 
             i = i + 1
