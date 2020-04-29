@@ -3,37 +3,73 @@
 from Temperature import CtoF, FtoC, KtoF
 import temperature_exceptions 
 
-def getNumericTemperature(promptString):
+def main(): 
     while True:
         try:
-            inputVal = input('(' + promptString + ')value? ')
-            return float(inputVal)
-        except KeyboardInterrupt:
-            raise
-        except:
-            print("Input must be a float")
-def main(): 
-    while True:  
-        userInput = input('Convert (C)elsius, (F)ahrenheit, or (K)elvin? ')
-        userInput = userInput.upper()
-        convertType = userInput[0]
+            userInput = input('Convert (C)elsius, (F)ahrenheit, or (K)elvin? ')
+            userInput = userInput.upper()
+            convertType = userInput[0]
+        except IndexError:
+            pass
         try:
             if convertType == ('C'):
-                celsius = getNumericTemperature('celsius')
-                fahrenheitOutput = CtoF(celsius)
-                print(str(round(fahrenheitOutput, 1)) + ' F')
+                while True:
+                    try:
+                        inputVal = float(input('(Celsius)value? '))
+                    except ValueError:
+                        pass
+                    try:
+                        if inputVal < -273.15:
+                            raise temperature_exceptions.TemperatureTooLowError
+                        fahrenheitOutput = CtoF(inputVal)
+                        print(str(round(fahrenheitOutput, 1)) + ' F')
+                        break 
+                    except temperature_exceptions.TemperatureTooLowError:
+                        print('Temperature cannot exceed absolute zero')
+                        pass
+                    except: 
+                        print('Please input a temperature')
+                        pass  
             elif convertType == ('F'):
-                fahrenheit = getNumericTemperature('fahrenheit')
-                celsiusOutput = FtoC(fahrenheit)
-                print(str(round(celsiusOutput, 1)) + ' C')   
+                while True:
+                    try:
+                        inputVal = float(input('(Fahrenheit)value? '))
+                    except ValueError:
+                        pass
+                    try:
+                        if inputVal < -459.67:
+                            raise temperature_exceptions.TemperatureTooLowError
+                        celsiusOutput = FtoC(inputVal)
+                        print(str(round(celsiusOutput, 1)) + ' C')
+                        break 
+                    except temperature_exceptions.TemperatureTooLowError:
+                        print('Temperature cannot exceed absolute zero')
+                        pass  
+                    except: 
+                        print('Please input a temperature')
+                        pass
             elif convertType == ('K'):
-                kelvin = getNumericTemperature('kelvin')
-                kelvinOutput = KtoF(kelvin)
-                print(str(round(kelvinOutput, 1)) + 'F')         
+                while True:
+                    try:
+                        inputVal = float(input('(Kelvin)value? '))
+                    except ValueError:
+                        pass
+                    try:
+                        if inputVal < 0:
+                            raise temperature_exceptions.TemperatureTooLowError
+                        kelvinOutput = KtoF(inputVal)
+                        print(str(round(kelvinOutput, 1)) + 'F')
+                        break 
+                    except temperature_exceptions.TemperatureTooLowError:
+                        print('Temperature cannot exceed absolute zero')
+                        pass    
+                    except: 
+                        print('Please input a temperature')
+                        pass
             else:
-                print('Please choose either (C)elsius or (F)ahrenheit')
-        except temperature_exceptions.TemperatureTooLowError:
-            print('Temperature cannot exceed absolute zero')
+                print('Please choose either (C)elsius, (F)ahrenheit, or (K)elvin')
+        except:
+            pass
         
 if __name__ == '__main__': 
     try:
@@ -41,8 +77,6 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         print('\nok. bye!\n')
         exit()
-    except: 
-        print('Exception occured please restart program')
         
 
 
