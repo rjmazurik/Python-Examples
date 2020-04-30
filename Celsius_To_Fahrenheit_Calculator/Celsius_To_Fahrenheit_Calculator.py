@@ -19,7 +19,7 @@ def main():
                     except temperature_exceptions.TemperatureTooLowError:
                         print('Temperature cannot be below absolute zero')
                     except ValueError:
-                        print("Please enter a value for the temperature")
+                        print("Please enter a numeric value for the temperature")
                         
             elif convertType == ('F'):
                 while True:
@@ -29,9 +29,9 @@ def main():
                         print(str(round(celsiusOutput, 1)) + ' C')
                         break 
                     except temperature_exceptions.TemperatureTooLowError:
-                        print('Temperature cannot exceed absolute zero')
+                        print('Temperature cannot be below absolute zero')
                     except ValueError: 
-                       print("Please enter a value for the temperature")
+                       print("Please enter a numeric value for the temperature")
                         
             elif convertType == ('K'):
                 while True:
@@ -41,9 +41,9 @@ def main():
                         print(str(round(kelvinOutput, 1)) + 'F')
                         break 
                     except temperature_exceptions.TemperatureTooLowError:
-                        print('Temperature cannot exceed absolute zero')   
+                        print('Temperature cannot be below absolute zero')   
                     except ValueError: 
-                        print("Please enter a value for the temperature")
+                        print("Please enter a numeric value for the temperature")
         except IndexError:
             print('invalid input')
         except KeyboardInterrupt:
