@@ -1,6 +1,8 @@
 # Temperature Exceptions
 class TemperatureTooLowError(Exception):
-    pass
+    def __init__(self):
+        print('Temperature cannot be below absolute zero')
+        
         
 
 

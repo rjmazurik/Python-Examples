@@ -17,7 +17,7 @@ def main():
                         print(str(round(fahrenheitOutput, 1)) + ' F')
                         break 
                     except temperature_exceptions.TemperatureTooLowError:
-                        print('Temperature cannot be below absolute zero')
+                        pass
                     except ValueError:
                         print("Please enter a numeric value for the temperature")
                         
@@ -29,7 +29,7 @@ def main():
                         print(str(round(celsiusOutput, 1)) + ' C')
                         break 
                     except temperature_exceptions.TemperatureTooLowError:
-                        print('Temperature cannot be below absolute zero')
+                        pass
                     except ValueError: 
                        print("Please enter a numeric value for the temperature")
                         
@@ -41,7 +41,7 @@ def main():
                         print(str(round(kelvinOutput, 1)) + 'F')
                         break 
                     except temperature_exceptions.TemperatureTooLowError:
-                        print('Temperature cannot be below absolute zero')   
+                        pass   
                     except ValueError: 
                         print("Please enter a numeric value for the temperature")
         except IndexError:
