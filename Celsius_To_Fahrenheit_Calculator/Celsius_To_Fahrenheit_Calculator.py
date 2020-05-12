@@ -3,51 +3,37 @@
 from Temperature import CtoF, FtoC, KtoF
 import temperature_exceptions 
 
+def convertTemperature(prompt:str, convertFunction, outputTempLabelChar  ):
+    while True:
+        try:
+            inputVal = float(input(prompt + ' '))
+            tempOutput = convertFunction(inputVal)
+            print(str(round(tempOutput, 1)) + ' ' + outputTempLabelChar  )
+            break 
+        except temperature_exceptions.TemperatureTooLowError as exc:
+            print(f'{exc.Message}, limit: {exc.TempLowBoundValue}')
+        except ValueError:
+            print("Please enter a numeric value for the temperature")
+
 def main(): 
+    INVALID_INPUT_MSG = 'Invalid conversion type. Try F, C or K'
     while True:
         try:
             userInput = input('Convert (C)elsius, (F)ahrenheit, or (K)elvin? ')
             userInput = userInput.upper()
             convertType = userInput[0]
             if convertType == ('C'):
-                while True:
-                    try:
-                        inputVal = float(input('(Celsius)value? '))
-                        fahrenheitOutput = CtoF(inputVal)
-                        print(str(round(fahrenheitOutput, 1)) + ' F')
-                        break 
-                    except temperature_exceptions.TemperatureTooLowError:
-                        pass
-                    except ValueError:
-                        print("Please enter a numeric value for the temperature")
-                        
+                convertTemperature('(Celsius)value?', CtoF, 'F'  )    
             elif convertType == ('F'):
-                while True:
-                    try:
-                        inputVal = float(input('(Fahrenheit)value? '))
-                        celsiusOutput = FtoC(inputVal)
-                        print(str(round(celsiusOutput, 1)) + ' C')
-                        break 
-                    except temperature_exceptions.TemperatureTooLowError:
-                        pass
-                    except ValueError: 
-                       print("Please enter a numeric value for the temperature")
-                        
+                convertTemperature('(Fahrenheit)value?', FtoC, 'C'  )   
             elif convertType == ('K'):
-                while True:
-                    try:
-                        inputVal = float(input('(Kelvin)value? '))
-                        kelvinOutput = KtoF(inputVal)
-                        print(str(round(kelvinOutput, 1)) + 'F')
-                        break 
-                    except temperature_exceptions.TemperatureTooLowError:
-                        pass   
-                    except ValueError: 
-                        print("Please enter a numeric value for the temperature")
+                convertTemperature('(Kelvin)value?', KtoF, 'K'  ) 
+            else:
+                print(INVALID_INPUT_MSG)
         except IndexError:
-            print('invalid input')
-        except KeyboardInterrupt:
-            raise
+            print(INVALID_INPUT_MSG)
+        
+        
 if __name__ == '__main__': 
     try:
         main()
