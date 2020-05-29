@@ -7,7 +7,7 @@ def main():
     print("EC2 instance created")
     for instance in ec2.instances.all():
         print(instance.id, instance.image.id)
-    userInput = input('Delete Instance? Enter Instance ID ')
+    userInput = input('Delete Instance? Enter Instance ID: ')
     DeleteEC2(userInput)
 
     
